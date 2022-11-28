@@ -1,5 +1,0 @@
-
-    "require": {
-        "symfony/doctrine-messenger": "^6.1"
-    }
-}
