@@ -1,0 +1,7 @@
+framework:
+  rate_limiter:
+    email_output_limit:
+      #Office 365 email limit is 30 mails per minute (per account)
+      policy: 'fixed_window'
+      limit: 1
+      interval: '2 seconds'

@@ -1,0 +1,48 @@
+version: '3.8'
+
+networks:
+  nginx-php81-mariadb:
+
+services:
+
+
+  # php
+  php81-service:
+    build:
+      context: .
+      dockerfile: build/php/Dockerfile
+    container_name: bug-php81-container
+    ports:
+      - "9000:9000"
+    volumes:
+      - ./app:/var/www
+    networks:
+      - nginx-php81-mariadb
+
+
+  db-postgres:
+    image: postgres:${POSTGRES_VERSION:-14}-alpine
+    container_name: bug-postgres-container
+    restart: always
+    ports:
+      - '5432:5432'
+    environment:
+      POSTGRES_PASSWORD: example
+      POSTGRES_USER: ${POSTGRES_USER:-symfony}
+    volumes:
+#      - db-data:/var/lib/postgresql/data:rw
+      # You may use a bind-mounted host directory instead, so that it is harder to accidentally remove the volume and lose all your data!
+       - ./docker/db/data:/var/lib/postgresql/data:rw
+    networks:
+      - nginx-php81-mariadb
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+    networks:
+      - nginx-php81-mariadb
+
+volumes:
+  db_data:

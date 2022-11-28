@@ -1,10 +1,49 @@
-
+/.idea
+/app/public/uploads/
+/app/package-lock.json
 ###> symfony/framework-bundle ###
-/.env.local
-/.env.local.php
-/.env.*.local
-/config/secrets/prod/prod.decrypt.private.php
-/public/bundles/
-/var/
-/vendor/
+/app/.env.local
+/app/.env.local.php
+/app/.env.*.local
+/app/config/secrets/prod/prod.decrypt.private.php
+/app/public/bundles/
+/app/var/
+/app/vendor/
+/app/vendor_gav/
 ###< symfony/framework-bundle ###
+
+###> symfony/webpack-encore-bundle ###
+/app/node_modules/
+/app/public/build/
+/app/public/coverage/
+/app/npm-debug.log
+/app/yarn-error.log
+###< symfony/webpack-encore-bundle ###
+/app/.env
+/app/.env.test
+/app/yarn.lock
+/app/composer.lock
+
+###> php cs fixer###
+/app/tools/
+/app/.php-cs-fixer.cache
+###< php cs fixer###
+
+/minio_data/.minio.sys
+/minio_data/testbucket
+
+###> symfony/phpunit-bridge ###
+.phpunit.result.cache
+/phpunit.xml
+###< symfony/phpunit-bridge ###
+
+###> phpunit/phpunit ###
+app/phpunit.xml
+app/.phpunit.result.cache
+#chromedriver
+app/drivers
+###< phpunit/phpunit ###
+
+###> lexik/jwt-authentication-bundle ###
+app/config/jwt/*.pem
+###< lexik/jwt-authentication-bundle ###
